@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Customer Support Desk</string>
+    <string name="complaints">Complaints</string>
+    <string name="suggestions">Suggestions</string>
+    <string name="feedback">Feedback</string>
+    <string name="description">Description…</string>
+    <string name="title">Title</string>
+    <string name="add_image">Add Image</string>
+    <string name="message">Message</string>
+    <string name="type_message_here">Type message here…</string>
+    <string name="update_status">Choose Status : </string>
+    <string name="save">Save</string>
+    <string name="mobile_number">Mobile number</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="update">Update</string>
+    <string name="mobile">Mobile :</string>
+    <string name="from">From :</string>
+</resources>

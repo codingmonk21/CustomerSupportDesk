@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CustomerSupportDeskSample</string>
+    <string name="contact_support">Contact Support</string>
+    <string name="admin">Admin</string>
+</resources>
