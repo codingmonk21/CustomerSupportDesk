@@ -1,3 +1,6 @@
+
+[![](https://jitpack.io/v/dev-prajwal21/CustomerSupportDesk.svg)](https://jitpack.io/#dev-prajwal21/CustomerSupportDesk)
+
 # CustomerSupportDesk
 CustomerSupportDesk is a unique solution for adding Customer-Support module in any android app. The growth of any business purely depends on customer satisfaction, but the sustainance of growth in long term simply depends on the quality of support offered to help customers overcome the issues they face. Customer-Support, which is often neglected and taken for granted can sometime take a huge toll and make the users step out of the product in no time. The motive behind building this library is to address this common issue faced by all app developers so that they don't lose their users and keep increasing the userbase by offering a user-friendly and quality Customer-Support service. 
 
@@ -46,11 +49,35 @@ Using the admin section is optional and is upto the choice of the developer. But
           compile 'com.github.dev-prajwal21:CustomerSupportDesk:1.0'
   
 <h4> Step 5: </h4>
+  Goto firebase console > Select the project you created > Select firebase database from menu.
+  
+  Click on the rules tabs and replace the content with below code,
+  
+      {
+        "rules": {
+        ".read": "auth == null",
+        ".write": "auth == null"
+      }
+    }
+    
+  Now, Select the firebase storage from the menu.
+  
+  Click on the rules tabs and replace the content with below code,
+  
+      service firebase.storage {
+        match /b/{bucket}/o {
+          match /{allPaths=**} {
+            allow read, write: if request.auth == null;
+        }
+      } 
+    }
+
+<h4> Step 6: </h4>
   Place a button anywhere in the app according to your design to navigate to customer-support screen.
   <h4> Note: </h4> 
   Its not necessary that you need to use only button. It can be any view.
 
-<h4> Step 6: </h4> 
+<h4> Step 7: </h4> 
   Get a reference to sharedPreferenceHelper object in the activity/fragment where the button (or any view) used to               navigate to customer-support screen.
   
   Implement the UserRegistrationListener in the activity/fragment where the button(or any view) used to navigate to             customer-support screen as shown below,
@@ -75,8 +102,8 @@ Using the admin section is optional and is upto the choice of the developer. But
         
       }
 
-<h4> Step 7: </h4>
-  > Copy paste the below code in the interface method registrationStatus(),
+<h4> Step 8: </h4>
+  Copy paste the below code in the interface method registrationStatus(),
         
         if (isUserRegistered) {
             if (sharedPreferenceHelper.getBoolean(Config.SP_ADMIN_LOGIN, false)) {
@@ -87,7 +114,7 @@ Using the admin section is optional and is upto the choice of the developer. But
             startActivity(new Intent(this, ProfileFillUpActivity.class));
         }
         
-<h4> Step 8: </h4> 
+<h4> Step 9: </h4> 
   Get a reference for the button (or any view) used to navigate to customer-support screen and attach a click listener to it.
 
       contactSupportBtn = (Button) findViewById(R.id.contactSupportBtn);
@@ -131,3 +158,73 @@ Using the admin section is optional and is upto the choice of the developer. But
   While logging in as admin it is mandatory to use the below line of code and then start the AdminDashboard activity, 
             
       sharedPreferenceHelper.putBoolean(Config.SP_ADMIN_LOGIN, true);
+      
+ # Screenshots
+ <h3> Customer-Support Section: </h3>
+ <p>
+<kbd>
+    <img src="https://github.com/dev-prajwal21/CustomerSupportDesk/blob/master/Screenshot_2017-07-23-11-51-16-286.jpeg"            alt=“Screenshot” width=“320px” height = "480px"/>
+</kbd>
+
+<kbd>
+    <img src="https://github.com/dev-prajwal21/CustomerSupportDesk/blob/master/Screenshot_2017-07-23-11-52-07-353.jpeg"            alt=“Screenshot” width=“320px” height = "480px"/>
+</kbd>
+
+<kbd>
+    <img src="https://github.com/dev-prajwal21/CustomerSupportDesk/blob/master/Screenshot_2017-07-23-11-52-37-834.jpeg"            alt=“Screenshot” width=“320px” height = "480px"/>
+</kbd>
+
+</p>
+
+<br/>
+
+<p>
+
+<kbd>
+    <img src="https://github.com/dev-prajwal21/CustomerSupportDesk/blob/master/Screenshot_2017-07-23-11-52-58-747.jpeg"            alt=“Screenshot” width=“320px” height = "480px"/>
+</kbd>
+
+<kbd>
+    <img src="https://github.com/dev-prajwal21/CustomerSupportDesk/blob/master/Screenshot_2017-07-23-11-52-47-667.jpeg"            alt=“Screenshot” width=“320px” height = "480px"/>
+</kbd>
+
+<kbd>
+    <img src="https://github.com/dev-prajwal21/CustomerSupportDesk/blob/master/Screenshot_2017-07-23-12-21-31-744.jpeg"            alt=“Screenshot” width=“320px” height = "480px"/>
+</kbd>
+</p>
+
+<br/>
+<p>
+<kbd>
+    <img src="https://github.com/dev-prajwal21/CustomerSupportDesk/blob/master/Screenshot_2017-07-23-12-20-59-763.jpeg"            alt=“Screenshot” width=“320px” height = "480px"/>
+</kbd>
+</p>
+
+<br/>
+
+ <h3> Admin Section: </h3>
+
+<p>
+<kbd>
+    <img src="https://github.com/dev-prajwal21/CustomerSupportDesk/blob/master/Screenshot_2017-07-23-11-53-17-997.jpeg"            alt=“Screenshot” width=“320px” height = "480px"/>
+</kbd>
+
+<kbd>
+    <img src="https://github.com/dev-prajwal21/CustomerSupportDesk/blob/master/Screenshot_2017-07-23-11-53-36-677.jpeg"            alt=“Screenshot” width=“320px” height = "480px"/>
+</kbd>
+</p>
+
+<br/>
+
+<b> Note: </b> <br/>
+Please take a look at the sample app for more clarity on implementation. 
+
+<b>Feel free to experiment on the project. Star the project if you liked my work and if it helped you.</b>
+
+<h4>Happy Coding :)</h4>
+
+<h3>Thanks</h3>
+<a href = 'https://github.com/ArthurHub/Android-Image-Cropper'>ArthurHub Cropper</a>
+
+<h3>License</h3>
+<a href = 'https://github.com/dev-prajwal21/CustomerSupportDesk/blob/master/LICENSE'>Apache License v2.0</a>
