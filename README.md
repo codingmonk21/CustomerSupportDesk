@@ -131,6 +131,8 @@ Using the admin section is optional and is upto the choice of the developer. But
       userRegistration.setUserRegistrationListener(MainActivity.this);
       userRegistration.isUserRegistered("12345");
       
+  Replace "12345" by a uniqueID with which you identify your user. The ID should be unique for each user. 
+      
   Thats it!! Now your app has a customer-support module integrated to it.<br/> 
   Click on the button and fill the user details to proceed to the dashboard and add complaints, suggestions, feedback.
   
